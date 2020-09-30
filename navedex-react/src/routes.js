@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route }  from 'react-router-dom';
-import index from './routes/index';
+import login from './routes/login';
 
 function Routes(){
     return(
         <BrowserRouter>
-            <Route path='/' exact component={index} />
+            <Route path='/' exact component={login} />
         </BrowserRouter>            
     );
 }
