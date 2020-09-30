@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 const LoginButton = styled.button`
     height: 40px;
-    width: 384px;
+    width: 100%;
     color: white;
     cursor: pointer;
     border: none;
     background: black;
     outline: none;
-    margin-top: 310px;
+    text-align: center;
+    margin: 32px 0px 0px 0px;
 `;
 
 export default LoginButton
