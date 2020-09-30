@@ -1,16 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Button from '../components/buttons/buttons';
-import ContentContainer from '../components/containers/contentContainer';
+import React from 'react'
+// eslint-disable-next-line
+import ReactDOM from 'react-dom'
+import Button from '../components/buttons/Buttons'
+import ContentContainer from '../components/containers/ContentContainer'
 
-function index(){
-    return(
-        <React.Fragment>
-          <ContentContainer>
-            <Button />
-          </ContentContainer>
-        </React.Fragment>
-    );
-  }
+function index () {
+  return (
+    <>
+      <ContentContainer>
+        <Button>Entrar</Button>
+      </ContentContainer>
+    </>
+  )
+}
 
-export default index  
+export default index
