@@ -1,27 +1,31 @@
 import React from 'react'
-// eslint-disable-next-line
-import ReactDOM from 'react-dom'
-import LoginButton from '../../components/Buttons'
+import Button from '../../components/Buttons'
 import { LoginContainer, ContentContainer } from '../../components/Containers'
-import LoginForm from '../../components/Forms'
-import  LabelLogin  from '../../components/Labels'
-import LogoNave from '../../components/Icons'
-import IconLOGO from '../../assets/logo-nave.png'
+import  Label  from '../../components/Labels'
+import Icons from '../../components/Icons'
+import IconLOGO from '../../assets/Images/logo-nave.png'
+import { useHistory } from 'react-router-dom'
+import Forms from '../../components/Forms'
 
-function login () {
+function Login () {
+    const history = useHistory();
+    const handleClick = () => history.push('/home');
+  
   return (
     <ContentContainer>
       <LoginContainer>
-        <LogoNave src={IconLOGO}/> 
-          <LabelLogin> E-mail    
-            <LoginForm placeholder="E-mail" type='email'></LoginForm>
-          </LabelLogin>      
-          <LabelLogin> Senha
-            <LoginForm placeholder="Senha" type='password'></LoginForm>
-          </LabelLogin>
-        <LoginButton>Entrar</LoginButton>
+        <Icons login src={IconLOGO}/> 
+          <Label labellogin>E-mail    
+            <Forms placeholder="E-mail" type='email' login></Forms>
+          </Label>      
+          <Label labellogin>Senha
+            <Forms placeholder="Senha" type='password' login></Forms>
+          </Label>
+        <Button login type="button" onClick={handleClick}>Entrar</Button>
       </LoginContainer>
     </ContentContainer>
   )
 }
-export default login
+
+
+export default Login
