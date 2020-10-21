@@ -1,11 +1,11 @@
 import React from 'react'
-import Button from '../../components/Buttons'
-import { LoginContainer, ContentContainer } from '../../components/Containers'
+import Button from '../../components/buttons'
+import { LoginContainer, ContentContainer } from '../../components/containers'
 import  Label  from '../../components/Labels'
 import Icons from '../../components/Icons'
 import IconLOGO from '../../assets/Images/logo-nave.png'
 import { useHistory } from 'react-router-dom'
-import Forms from '../../components/Forms'
+import Forms from '../../components/forms'
 
 function Login () {
     const history = useHistory();
