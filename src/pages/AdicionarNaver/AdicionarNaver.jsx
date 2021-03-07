@@ -10,8 +10,12 @@ import ReturnButtonIcon from '../../assets/Images/arrow-icon.png'
 import Text from '../../components/Texts'
 import Label from '../../components/Labels'
 import api from '../../services/api'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AdicionarNaver () {
+
+  
 
   const [formData, setFormData] = useState({
     name: '',
@@ -42,16 +46,47 @@ function AdicionarNaver () {
       url,
     }
 
+    const CustomToast = ({ closeToast }) => {
+      return(
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , width: '200px'}}>
+          <p>Erro no Cadastro.</p>
+          <br />
+          <button onClick={closeToast}>OKAY!</button>
+        </div>
+      )
+    }
+
     try {
       await api.post('/navers', data)
-      await alert('Cadastrou');
+      await toast.success("Cadastrou",{
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (err) {
       console.log(err)
+      await toast.error(<CustomToast/>,{
+        position: "top-center",
+        hideProgressBar: false,
+        autoClose: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   }
 
     return (
+      
   <HomeContainer>
+
+    <ToastContainer style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100px'}} />
+
     <Header>
       <Link to='/home' style={{ textDecoration: 'none' }}>
         <Icons header src={IconLOGO}/>
