@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const Forms = styled.input`
+const Input = styled.input`
     margin: 0;
     padding: 0;
 
@@ -31,4 +31,4 @@ const Forms = styled.input`
         `}
 `;
 
-export default Forms
+export default Input

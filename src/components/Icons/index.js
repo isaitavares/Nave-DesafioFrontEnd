@@ -6,7 +6,6 @@ display:block;
     ${props => props.header && css`
         height:37px;
         width:145.12px;
-        margin: 24px 32px;
         display:inline-block;
             &:hover{
                     cursor:pointer;            
@@ -17,13 +16,9 @@ display:block;
         width:235px;
     `}
     ${props => props.avatarnaver && css`
-        height:280px;
-        width:280px;
-        margin: 12px auto 16px auto;
-        transition: 0.3s;
+        height:370px;
+        width:100%;
         &:hover{
-            height:300px;
-            width:300px;
             cursor: pointer;           
         }
     `}

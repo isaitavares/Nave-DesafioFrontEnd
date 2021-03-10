@@ -25,8 +25,7 @@ function Routes(){
             <CustomRoute path='/login' exact component={Login} />
             <CustomRoute isPrivate path='/home' exact component={Home} />
             <CustomRoute isPrivate path='/naver/adicionar' exact component={AdicionarNaver} />
-            <CustomRoute isPrivate path='/naver/editar' exact component={EditarNaver} />
-            {/* <Route path={`/naver/editar/:id`} exact component={EditarNaver} /> */}
+            <CustomRoute path={`/naver/editar/:id`} exact component={EditarNaver} />
 
             <CustomRoute exact path='/'><Redirect to='/home'/></CustomRoute>
        </Switch>

@@ -29,8 +29,7 @@ export default function useAuth(){
                 const { data: { token } } = await api.post('/users/login', credentials)
                     localStorage.setItem('token', JSON.stringify(token));
                     api.defaults.headers.Authorization = `Bearer ${token}`;
-                    setAuthenticated(true);
-                    console.log(token);        
+                    setAuthenticated(true);        
             } catch (error) {
                 console.log(error)
                 alert('E-mail ou Senha Incorreta.')

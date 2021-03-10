@@ -5,7 +5,21 @@ import {Context} from '../../context/authContext'
 
 import Icons from '../Icons'
 import IconLOGO from '../../assets/Images/logo-nave.png'
-import Button from '../buttons'
+import Button from '../Button'
+
+function Header() {
+
+    const { handleLogout } = useContext(Context);
+
+        return(
+            <HeaderComponent>
+                <Link to='/home' style={{ textDecoration: 'none', display: 'flex', justifyContent: 'flex-start' }}>
+                    <Icons header src={IconLOGO}/>
+                </Link>
+                    <Button header onClick={handleLogout}>Sair</Button>
+            </HeaderComponent>
+        )
+}
 
 const HeaderComponent = styled.header`
 height:85px;
@@ -14,22 +28,10 @@ background: white;
 display: flex;
 align-items: center;
 justify-content: space-between;
+margin-bottom: 70px;
     @media (max-width: 540px) {
         height:55px;
     }    
 `
 
-function Header() {
-
-    const { handleLogout } = useContext(Context);
-
-        return(
-            <HeaderComponent>
-                <Link to='/home' style={{ textDecoration: 'none' }}>
-                    <Icons header src={IconLOGO}/>
-                </Link>
-                    <Button header onClick={handleLogout}>Sair</Button>
-            </HeaderComponent>
-        )
-}
 export default Header;

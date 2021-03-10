@@ -1,18 +1,101 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import {useHistory,useParams} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import styled from 'styled-components'
+import moment from 'moment'
+
+import Alert from '../../components/Alert'
+import api from '../../services/api'
 import Header from '../../components/Header'
 import Icons from '../../components/Icons'
 import IconLOGO from '../../assets/Images/logo-nave.png'
 import { HomeContainer, ContentContainer, NaversFormsContainer, PageTitleNaversContainer, SectionNaversContainer, ButtonNaversContainer } from '../../components/containers'
-import Button from '../../components/buttons'
-import Forms from '../../components/forms'
+import Button from '../../components/Button'
+import Input from '../../components/Input'
 import { Link } from 'react-router-dom'
-import ReturnButtonIcon from '../../assets/Images/arrow-icon.png'
-import Text from '../../components/Texts'
-import Label from '../../components/Labels'
+import Text from '../../components/Text'
+import Label from '../../components/Label'
 
 function EditarNaver () {
+
+  const history = useHistory()
+  const { id } = useParams()
+  const [alert, setAlert] = useState(false)
+  const [naver, setNaver] = useState({})
+  const [formData, setFormData] = useState({
+    name: '',
+    job_role: '',
+    birthdate: '',
+    admission_date: '',
+    project: '',
+    url: '',
+  })
+
+  useEffect(() => {
+    const fetchNavers = async () => {
+      try {
+        const { data } = await api.get(`/navers/${id}`)
+        setNaver(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    fetchNavers()
+  }, [id])
+
+  useEffect(() => {
+    setFormData({
+      name: naver.name,
+      job_role: naver.job_role,
+      birthdate: moment(naver.birthdate).format('DD/MM/YYYY'),
+      admission_date: moment(naver.admission_date).format('DD/MM/YYYY'),
+      project: naver.project,
+      url: naver.url,
+    })
+  }, [naver])
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    const { name, job_role, birthdate, admission_date, project, url } = formData
+
+    const data = {
+      name,
+      job_role,
+      birthdate,
+      admission_date,
+      project,
+      url,
+    }
+
+    try {
+      console.log(data)
+      await api.put(`/navers/${naver.id}`, data)
+      setAlert(true)
+    } catch (err) {
+      console.log(err)
+      await toast.error("Erro na edição",{
+        position: "top-center",
+        hideProgressBar: false,
+        autoClose: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }
     return (
   <HomeContainer>
+
+    <ToastContainer style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100px'}} />
+    
     <Header>
       <Link to='/home' style={{ textDecoration: 'none' }}>
         <Icons header src={IconLOGO}/>
@@ -22,38 +105,97 @@ function EditarNaver () {
         <ContentContainer addeditnaver>
           <SectionNaversContainer>
             <PageTitleNaversContainer>
-              <Link to='/home' style={{ textDecoration: 'none' }}>
-                <Icons src={ReturnButtonIcon} alt="ReturnButton" ReturnButton />
+              <Link to='/home' style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+                <BackIcon />
               </Link>
-              <Text adicionarnavers>Editar Naver</Text>
+              <Text fontWeight="600" fontSize="mediumlarge">Editar Naver</Text>
             </PageTitleNaversContainer>  
             <NaversFormsContainer>
-              <Label labelnaver>Nome
-                <Forms adicionarnaverform placeholder="Nome" type="text"></Forms>
+              <Label fontWeight="600" textAlign="left" fontSize="small">Nome
+                <Input
+                adicionarnaverform
+                placeholder="Nome"
+                name='name'
+                type="text"
+                defaultValue={formData.name}
+                onChange={handleInputChange} />
               </Label>
-              <Label labelnaver>Cargo  
-                <Forms adicionarnaverform placeholder="Cargo" type="text"></Forms>
+              <Label fontWeight="600" textAlign="left" fontSize="small">Cargo  
+                <Input
+                adicionarnaverform
+                placeholder="Cargo"
+                name='job_role'
+                type="text"
+                defaultValue={formData.job_role}
+                onChange={handleInputChange} />
               </Label>
-              <Label labelnaver>Idade  
-                <Forms adicionarnaverform placeholder="Idade" type="text"></Forms>
+              <Label fontWeight="600" textAlign="left" fontSize="small">Idade  
+                <Input
+                adicionarnaverform
+                placeholder="Idade"
+                name='birthdate'
+                type="text"
+                defaultValue={formData.birthdate}
+                onChange={handleInputChange} />
               </Label>
-              <Label labelnaver>Tempo de Empresa  
-                <Forms adicionarnaverform placeholder="Tempo de Empresa" type="text"></Forms>
+              <Label fontWeight="600" textAlign="left" fontSize="small">Tempo de Empresa  
+                <Input
+                adicionarnaverform
+                placeholder="Tempo de Empresa"
+                name='admission_date'
+                type="text"
+                defaultValue={formData.admission_date}
+                onChange={handleInputChange} />
               </Label>
-              <Label labelnaver>Projetos que participou  
-                <Forms adicionarnaverform placeholder="Projetos que participou" type="text"></Forms>
+              <Label fontWeight="600" textAlign="left" fontSize="small">Projetos que participou  
+                <Input
+                adicionarnaverform
+                placeholder="Projetos que participou"
+                name="project"
+                type="text"
+                defaultValue={formData.project}
+                onChange={handleInputChange} />
               </Label>
-              <Label labelnaver>URL da foto do Naver  
-                <Forms adicionarnaverform placeholder="URL da foto do Naver" type="text"></Forms>
+              <Label fontWeight="600" textAlign="left" fontSize="small">URL da foto do Naver  
+                <Input
+                adicionarnaverform
+                placeholder="URL da foto do Naver"
+                name="url"
+                type="text"
+                defaultValue={formData.url}
+                onChange={handleInputChange} />
               </Label>
             </NaversFormsContainer>
             <ButtonNaversContainer>
-              <Button titlehome>Salvar</Button>
+              <Button
+              color="white"
+              bg="black"
+              width="176px"
+              height="40px"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              onClick={handleSubmit}>Salvar</Button>
             </ButtonNaversContainer>  
           </SectionNaversContainer>
-        </ContentContainer>    
+        </ContentContainer>
+        {alert && (
+          <Alert
+            title='Naver Atualizado'
+            message='Naver atualizado com sucesso!'
+            changeAlert={() => {
+              history.push('/')
+            }}
+          />
+      )}         
         
   </HomeContainer>
     )
   }
+
+  const BackIcon = styled(ArrowBackIosIcon) `
+  && {
+      color: #212121;
+  }
+`;
   export default EditarNaver
