@@ -9,5 +9,7 @@ export {default as Input} from './Input'
 export {default as Label} from './Label'
 export {default as Modal} from './Modal'
 export {default as Icons} from './Icons'
+export {default as Notfound} from './Notfound'
+export {default as LoadingComponent} from './Loading'
 export {default as InputNumberFormat} from './InputNumberFormat'
 export { LoginContainer, ContentContainer, HomeContainer, PageTitleContainer, NaversContainer, HRContainer, NaversFormsContainer, PageTitleNaversContainer, SectionNaversContainer, ButtonNaversContainer } from './Container';

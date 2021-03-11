@@ -2,13 +2,19 @@ import React, {useContext} from 'react';
 import { Context } from '../context/authContext'
 import { Switch, Route, Redirect }  from 'react-router-dom';
 import { Login, Home, AdicionarNaver, EditarNaver } from '../pages';
+import {Notfound,LoadingComponent,Text,Row} from '../components'
 
 function CustomRoute({ isPrivate, ...rest }) {
     const { authenticated, loading } = useContext(Context);
 
     
     if (loading){
-        return <p>Carregando...</p>
+        return (
+            <Row>
+                <LoadingComponent/>
+                <Text fontSize='large' fontWeight='600'>Carregando...</Text>
+            </Row>
+            )
     }
 
     if (isPrivate && !authenticated) {
@@ -28,6 +34,7 @@ function Routes(){
             <CustomRoute path={`/naver/editar/:id`} exact component={EditarNaver} />
 
             <CustomRoute exact path='/'><Redirect to='/home'/></CustomRoute>
+            <CustomRoute component={Notfound} />
        </Switch>
                     
     );
