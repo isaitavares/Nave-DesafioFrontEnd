@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 import React,{useContext} from 'react'
 import {Link} from 'react-router-dom'
-import {Context} from '../../context/authContext'
 
-import Icons from '../Icons'
+import {Context} from '../../context/authContext'
+import {Icons,Button} from '../'
 import IconLOGO from '../../assets/Images/logo-nave.png'
-import Button from '../Button'
 
 function Header() {
 

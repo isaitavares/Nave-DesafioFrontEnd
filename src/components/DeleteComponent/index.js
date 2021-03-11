@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useHistory } from 'react-router-dom'
-import Alert from '../Alert'
 
+import {Alert} from '../'
 import api from '../../services/api'
 
 const DeleteComponent = ({ naverId }) => {

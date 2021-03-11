@@ -4,18 +4,25 @@ import { ToastContainer, toast } from 'react-toastify';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import styled from 'styled-components'
 import moment from 'moment'
-
-import Alert from '../../components/Alert'
-import api from '../../services/api'
-import Header from '../../components/Header'
-import Icons from '../../components/Icons'
-import IconLOGO from '../../assets/Images/logo-nave.png'
-import { HomeContainer, ContentContainer, NaversFormsContainer, PageTitleNaversContainer, SectionNaversContainer, ButtonNaversContainer } from '../../components/containers'
-import Button from '../../components/Button'
-import Input from '../../components/Input'
 import { Link } from 'react-router-dom'
-import Text from '../../components/Text'
-import Label from '../../components/Label'
+
+import 
+{Alert,
+Header,
+Icons,
+HomeContainer,
+ContentContainer,
+NaversFormsContainer,
+PageTitleNaversContainer,
+SectionNaversContainer,
+ButtonNaversContainer,
+Button,
+Input,
+Text,
+Label} from '../../components'
+import api from '../../services/api'
+import IconLOGO from '../../assets/Images/logo-nave.png'
+
 
 function EditarNaver () {
 
@@ -118,7 +125,8 @@ function EditarNaver () {
                 name='name'
                 type="text"
                 defaultValue={formData.name}
-                onChange={handleInputChange} />
+                onChange={handleInputChange}
+                 />
               </Label>
               <Label fontWeight="600" textAlign="left" fontSize="small">Cargo  
                 <Input

@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
-import Text from '../Text'
 import CloseIcon from '@material-ui/icons/Close';
-import { Row } from '../Grid'
-import Button from '../Button'
+
+import { Row,Button,Text } from '../'
 
 const Alert = ({ title, message, changeAlert, confirmation=false, confirmationClick, cancelClick, closeIcon=false }) => {
     return(

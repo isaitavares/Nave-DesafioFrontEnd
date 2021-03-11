@@ -2,19 +2,28 @@ import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import styled from 'styled-components'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import Header from '../../components/Header'
-import Icons from '../../components/Icons'
-import IconLOGO from '../../assets/Images/logo-nave.png'
-import { HomeContainer, ContentContainer, NaversFormsContainer, PageTitleNaversContainer, SectionNaversContainer, ButtonNaversContainer } from '../../components/containers'
-import Button from '../../components/Button'
-import Input from '../../components/Input'
-import { Link } from 'react-router-dom'
-import Text from '../../components/Text'
-import Label from '../../components/Label'
-import api from '../../services/api'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Alert from '../../components/Alert'
+
+import 
+{Header,
+Icons,
+HomeContainer,
+ContentContainer,
+NaversFormsContainer,
+PageTitleNaversContainer,
+SectionNaversContainer,
+ButtonNaversContainer,
+Button,
+Input,
+Text,
+Label,
+Alert,
+InputNumberFormat} from '../../components'
+import IconLOGO from '../../assets/Images/logo-nave.png'
+import { Link } from 'react-router-dom'
+import api from '../../services/api'
+
 
 function AdicionarNaver () {
 
@@ -105,19 +114,19 @@ function AdicionarNaver () {
                 onChange={handleInputChange} />
               </Label>
               <Label textAlign="left" fontWeight="600" fontSize="small">Idade  
-                <Input
-                adicionarnaverform
+                <InputNumberFormat
                 placeholder="Idade"
                 name="birthdate"
                 type="text"
+                format='##/##/####'
                 onChange={handleInputChange} />
               </Label>
               <Label textAlign="left" fontWeight="600" fontSize="small">Tempo de Empresa  
-                <Input
-                adicionarnaverform
+                <InputNumberFormat
                 placeholder="Tempo de Empresa"
                 name="admission_date"
                 type="text"
+                format='##/##/####'
                 onChange={handleInputChange} />
               </Label>
               <Label textAlign="left" fontWeight="600" fontSize="small">Projetos que participou  

@@ -3,11 +3,10 @@ import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import CloseIcon from '@material-ui/icons/Close'
 import CreateIcon from '@material-ui/icons/Create';
-import DeleteComponent from '../DeleteComponent'
 import moment from 'moment'
 
+import {DeleteComponent,Text} from '../'
 import api from '../../services/api'
-import Text from '../Text'
 import DefaultAvatar from '../../assets/Images/default-avatar.png'
 
 import { Row, Column} from '../Grid'

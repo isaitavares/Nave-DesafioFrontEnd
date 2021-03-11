@@ -2,10 +2,7 @@ import React, {useState,useEffect} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
-import {Column,Row} from '../../components/Grid'
-import Header from '../../components/Header'
-import Text from '../../components/Text'
-import NaverCards from '../../components/Cards'
+import {Column,Row,Header,Text,Navers} from '../../components'
 import api from '../../services/api'
  
  
@@ -37,7 +34,7 @@ function Home () {
       >Adicionar Naver</ButtonStyled>
     </NavbarContainer>
       <NaversContainer display="grid" gridTemplateColumns='2.5fr 2.5fr 2.5fr 2.5fr' justifyItems='center'>
-        <NaverCards/>
+        <Navers/>
       </NaversContainer>          
     </HomeContentContainer>
 </HomeComponent>

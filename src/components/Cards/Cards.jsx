@@ -3,15 +3,10 @@ import CreateIcon from '@material-ui/icons/Create';
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import Text from '../Text'
-import Icons from '../Icons'
-import Modal from '../Modal'
-import DefaultAvatar from '../../assets/Images/default-avatar.png'
-import DeleteComponent from '../DeleteComponent'
-
-import api from '../../services/api'
+import {Text,Icons,Modal,DeleteComponent} from '../'
 import {Row} from '../Grid'
-
+import DefaultAvatar from '../../assets/Images/default-avatar.png'
+import api from '../../services/api'
 
 function NaverCards(){
 
@@ -63,14 +58,9 @@ function NaverCards(){
             </Row>               
       </ComponentContainer>
       ))}
-
 {isExpandedCard && (
-        <Modal CloseModal={handleExpandClose} naverId={naverId} />
-        
-      )}
-
-      
-      
+        <Modal CloseModal={handleExpandClose} naverId={naverId} />        
+      )}   
     </React.Fragment>     
     )
 }
