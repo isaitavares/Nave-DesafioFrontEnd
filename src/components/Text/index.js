@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { space } from 'styled-system'
 
 const LARGE = 'large'
 const MEDIUMLARGE = 'mediumlarge'
@@ -18,6 +19,7 @@ const TextStyled = styled.p`
   line-height: ${(props) => props.lineHeight};
   margin-bottom: ${(props) => props.marginBottom};
   margin-left: ${(props) => props.marginLeft};
+  ${space};
 
   font-size: ${({ fontSize }) => {
     switch (fontSize) {

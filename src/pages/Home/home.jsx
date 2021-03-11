@@ -1,10 +1,9 @@
 import React, {useState,useEffect} from 'react'
-import {Link} from 'react-router-dom'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 import {Column,Row} from '../../components/Grid'
 import Header from '../../components/Header'
-import Button from '../../components/Button'
 import Text from '../../components/Text'
 import NaverCards from '../../components/Cards'
 import api from '../../services/api'
@@ -25,27 +24,20 @@ function Home () {
       }
     }
     fetchNavers()
-  }, [navers])
+  }, [])
 
   return (
-<HomeComponent alignItems='center' >
+<HomeComponent alignItems='center' key={navers.id} >
   <HomeContentContainer>
     <Header />
     <NavbarContainer justifyContent="space-between" height='40px' width='1' mb='32px'>
       <Text fontSize="large" fontWeight="large">Navers</Text>
-      <Link to='/naver/adicionar' style={{ textDecoration: 'none', display: 'flex', alignItems: 'center'}}>
-      <Button
-      color="white"
-      bg="black"
-      width="176px"
-      height="40px"
-      display="flex"
-      justifyContent="center"
-      alignItems="center">Adicionar Naver</Button>
-      </Link> 
+      <ButtonStyled
+      to='/naver/adicionar'    
+      >Adicionar Naver</ButtonStyled>
     </NavbarContainer>
       <NaversContainer display="grid" gridTemplateColumns='2.5fr 2.5fr 2.5fr 2.5fr' justifyItems='center'>
-        <NaverCards />
+        <NaverCards/>
       </NaversContainer>          
     </HomeContentContainer>
 </HomeComponent>
@@ -73,6 +65,16 @@ const NaversContainer = styled(Row)`
   grid-auto-rows: 0.2fr;
   grid-gap: 1rem;
   flex-grow: 1;
+`
+const ButtonStyled = styled(Link)`
+  color:white;
+  background:black;
+  width:176px;
+  height:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
 `
 
 export default Home

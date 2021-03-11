@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import Text from '../Text'
 import Icons from '../Icons'
+import Modal from '../Modal'
 import DefaultAvatar from '../../assets/Images/default-avatar.png'
 import DeleteComponent from '../DeleteComponent'
 
@@ -15,6 +16,18 @@ import {Row} from '../Grid'
 function NaverCards(){
 
     const [navers, setNavers] = useState([])
+    const [isExpandedCard, setExpandedCard] = useState(null)
+    const [naverId, setNaverId] = useState('')
+
+    const handleExpand = (id) => {
+        setExpandedCard(id)
+        setNaverId(id)
+    }
+    function handleExpandClose () {
+      return(
+        setExpandedCard(false)
+      )
+    }
 
   
     useEffect(() => {
@@ -34,7 +47,7 @@ function NaverCards(){
   <React.Fragment>
       {navers.map((naver) => (
       <ComponentContainer key={naver.id} flexDirection="column" justifyContent='flex-start'>    
-            <Icons avatarnaver src={naver.url} onError={(e)=>{e.target.onerror = null; e.target.src=DefaultAvatar}}></Icons>
+            <Icons avatarnaver src={naver.url} onError={(e)=>{e.target.onerror = null; e.target.src=DefaultAvatar}} onClick={() => handleExpand(naver.id)}></Icons>
               <Text fontWeight="large" fontSize="medium" lineHeight="16px">
                 {naver.name}
               </Text>
@@ -51,6 +64,11 @@ function NaverCards(){
       </ComponentContainer>
       ))}
 
+{isExpandedCard && (
+        <Modal CloseModal={handleExpandClose} naverId={naverId} />
+        
+      )}
+
       
       
     </React.Fragment>     
@@ -60,20 +78,6 @@ function NaverCards(){
 const ComponentContainer = styled(Row)`
   width: 100%;
   max-width: 1200px;
-`
-
-const ModalComponentOutside = styled.div `
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.4);
-  position: fixed;
-  z-index: 1;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-`
-const ModalComponentCard = styled.div `
-
 `
 
 export default NaverCards

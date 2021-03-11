@@ -29,6 +29,7 @@ const Row = styled.div(
 
 const Column = styled(Row)`
 	flex-direction: column;
+	${space};
 `;
 
 Row.propTypes = {

@@ -154,6 +154,7 @@ function AdicionarNaver () {
           <Alert
             title='Naver Criado'
             message='Naver criado com sucesso'
+            closeIcon='true'
             changeAlert={() => {
               history.push('/')
             }}

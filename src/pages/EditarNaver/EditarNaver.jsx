@@ -183,6 +183,7 @@ function EditarNaver () {
           <Alert
             title='Naver Atualizado'
             message='Naver atualizado com sucesso!'
+            closeIcon='true'
             changeAlert={() => {
               history.push('/')
             }}

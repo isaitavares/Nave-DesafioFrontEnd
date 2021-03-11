@@ -5,12 +5,14 @@ import CloseIcon from '@material-ui/icons/Close';
 import { Row } from '../Grid'
 import Button from '../Button'
 
-const Alert = ({ title, message, changeAlert, confirmation=false, confirmationClick, cancelClick }) => {
+const Alert = ({ title, message, changeAlert, confirmation=false, confirmationClick, cancelClick, closeIcon=false }) => {
     return(
         <AlertOutsideContent>
             <AlertInsideContent>
                 <Row width="100%" justifyContent="flex-end">
-                    <CloseIconStyled onClick={changeAlert} />
+                    {closeIcon && (
+                        <CloseIconStyled onClick={changeAlert} />
+                    )} 
                 </Row>
                 <Text fontSize='large' fontWeight='large' marginBottom='24px'>{title}</Text>
                 <Text fontWeight='small'>{message}</Text>
@@ -66,7 +68,6 @@ const AlertOutsideContent = styled.div `
     align-items: center;
     top: 0;
     right: 0;
-    transition: 0.5s;
     background-color: rgba(0, 0, 0, 0.5);
 `
 
