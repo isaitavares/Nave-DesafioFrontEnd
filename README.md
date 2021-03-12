@@ -35,7 +35,7 @@
 ```bash
 git clone https://github.com/isaitavares/Nave-DesafioFrontEnd
 ```
-3. Após clonar o repositorio, fala instalação dos packages:
+3. Após clonar o repositorio, faça instalação dos packages:
 ```bash
 npm install
 ```
