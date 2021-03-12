@@ -53,10 +53,20 @@ yarn start
 ```
 
 **Login**:teste@nave.rs
+
+
 **Senha**:nave1234
+
+
 ou 
+
+
 **Login**:testing-user@nave.rs
+
+
 **Senha**:nave1234
+
+
 
 
 ## Tecnologias utilizadas
