@@ -64,8 +64,6 @@ yarn start
 *  **[Moment](https://momentjs.com)**
 *  **[React-Number-Format](https://www.npmjs.com/package/react-number-format)**
 *  **[React-Toastify](https://fkhadra.github.io/react-toastify)**
-*  **[React-Toastify](https://fkhadra.github.io/react-toastify)**
-
 
 
 
