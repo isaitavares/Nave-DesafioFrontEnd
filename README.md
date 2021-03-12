@@ -52,19 +52,19 @@ npm start
 yarn start
 ```
 
-**Login**:teste@nave.rs
+**Login**: teste@nave.rs
 
 
-**Senha**:nave1234
+**Senha**: nave1234
 
 
 ou 
 
 
-**Login**:testing-user@nave.rs
+**Login**: testing-user@nave.rs
 
 
-**Senha**:nave1234
+**Senha**: nave1234
 
 
 
